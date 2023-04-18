@@ -1,10 +1,15 @@
+import Image from "next/image";
+import storage from "local-storage-fallback";
 import { BsSearch } from "react-icons/bs";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import Image from "next/image";
-import { cookies } from "next/dist/client/components/headers";
+import { useEffect, useState } from "react";
 
 export default function NavTop() {
-  const cookiesStore = cookies();
+  const [tokenStore, setTokenStore] = useState("");
+  useEffect(() => {
+    const getToken = storage.getItem("token");
+    getToken !== null ? setTokenStore(getToken) : "null";
+  }, []);
 
   return (
     <div className="flex justify-between items-center px-6 w-full">

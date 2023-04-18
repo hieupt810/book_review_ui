@@ -3,7 +3,7 @@ export default function Login() {
     <div className="flex items-center justify-center mx-auto flex-col">
       <h3 className="uppercase text-3xl mb-8">Đăng nhập</h3>
       <form
-        action="http://localhost:3000/api/token"
+        action="http://localhost:3000/api/auth"
         method="POST"
         className="flex flex-col gap-4 items-center"
       >

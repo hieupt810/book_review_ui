@@ -1,15 +1,13 @@
 import { User } from "@/models/User";
-import { cookies } from "next/dist/client/components/headers";
+import storage from "local-storage-fallback";
 
 export default async function handler(req: any, res: any) {
   const baseURL = "https://localhost:7021/api/Auth";
-  const cookiesStore = cookies();
 
   switch (req.method) {
     case "POST":
       try {
         process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-
         const usr: User = req.body;
         const response = await fetch(baseURL + "/login", {
           method: "POST",
@@ -23,11 +21,7 @@ export default async function handler(req: any, res: any) {
           }),
         });
         const AuthToken = await response.json();
-
-        res.setHeader(
-          "Set-Cookie",
-          `token=${AuthToken.token}; HttpOnly; Path=/`
-        );
+        storage.setItem("token", AuthToken.token);
         res.redirect(307, "/");
       } catch (err) {
         console.log(err);
