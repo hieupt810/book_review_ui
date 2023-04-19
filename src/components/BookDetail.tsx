@@ -3,6 +3,7 @@ import { AiOutlineShareAlt } from "react-icons/ai";
 import { BsBookmark } from "react-icons/bs";
 import { FiDownload } from "react-icons/fi";
 import { Book } from "@/models/Book";
+import Cookies from "js-cookie";
 
 export async function getServerSideProps() {
   const res = await fetch("http://localhost:3000/api/review");
