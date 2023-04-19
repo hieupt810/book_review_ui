@@ -3,7 +3,7 @@ export const content = ["./src/**/*.{js,ts,jsx,tsx,mdx}"];
 export const theme = {
   extend: {
     spacing: {
-      middleHeight: "95vh",
+      middleHeight: "90vh",
       middleWidth: "90vw",
     },
   },

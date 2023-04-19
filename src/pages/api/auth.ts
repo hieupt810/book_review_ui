@@ -21,7 +21,8 @@ export default async function handler(req: any, res: any) {
           }),
         });
         const AuthToken = await response.json();
-        storage.setItem("token", AuthToken.token);
+        // storage.setItem("token", AuthToken.token);
+        localStorage.setItem("token", AuthToken.token);
         res.redirect(307, "/");
       } catch (err) {
         console.log(err);
@@ -29,6 +30,11 @@ export default async function handler(req: any, res: any) {
       } finally {
         process.env.NODE_TLS_REJECT_UNAUTHORIZED = "1";
       }
+      break;
+
+    case "GET":
+      const tokenStore = localStorage.getItem("token");
+      res.json({ token: tokenStore });
       break;
 
     default:

@@ -1,15 +1,21 @@
 import Image from "next/image";
 import storage from "local-storage-fallback";
+import { useRouter } from "next/router";
 import { BsSearch } from "react-icons/bs";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { useEffect, useState } from "react";
 
-export default function NavTop() {
-  const [tokenStore, setTokenStore] = useState("");
-  useEffect(() => {
-    const getToken = storage.getItem("token");
-    getToken !== null ? setTokenStore(getToken) : "null";
-  }, []);
+export async function getStaticProps() {
+  const tokenStore = await fetch("http://localhost:3000/api/auth");
+  return {
+    props: {
+      tokenStore,
+    },
+  };
+}
+
+export default function NavTop(tokenStore: any) {
+  const router = useRouter();
+  console.log(tokenStore);
 
   return (
     <div className="flex justify-between items-center px-6 w-full">
@@ -22,22 +28,41 @@ export default function NavTop() {
           name=""
           id=""
           className="bg-[#f0eee3] p-4 w-full text-base outline-none border-none ml-2"
-          placeholder="Search book name, author, edition ..."
+          placeholder="Tìm sách, tác giả, ..."
         />
       </div>
       <div className="flex space-x-12">
-        <div className="flex items-center justify-center hover:bg-[#ede9df] cursor-pointer px-4 py-2 rounded-full">
-          <Image
-            src="/BlankAvatar.jpg"
-            height={30}
-            width={30}
-            alt={"Avatar"}
-            priority={true}
-            className="rounded-full"
-          />
-          <span className="ml-3 text-base font-semibold">Username</span>
-        </div>
-        <button className="p-2 hover:bg-[#ede9df] rounded-full">
+        {tokenStore.length > 10 ? (
+          <div
+            onClick={() => {
+              storage.setItem("token", "none");
+              router.reload();
+            }}
+            className="flex items-center justify-center hover:bg-[#C9C39F] cursor-pointer px-4 py-2 rounded-full"
+          >
+            <Image
+              src="/BlankAvatar.jpg"
+              height={30}
+              width={30}
+              alt={"Avatar"}
+              priority={true}
+              className="rounded-full"
+            />
+            <span className="ml-3 text-base font-semibold">Username</span>
+          </div>
+        ) : (
+          <div className="flex items-center bg-[#C9C39F] rounded-full">
+            <button
+              onClick={() => {
+                router.push("/login");
+              }}
+              className="px-4"
+            >
+              Đăng nhập
+            </button>
+          </div>
+        )}
+        <button className="p-2 hover:bg-[#C9C39F] rounded-full">
           <IoMdNotificationsOutline size={30} />
         </button>
       </div>

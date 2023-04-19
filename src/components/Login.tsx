@@ -1,6 +1,6 @@
 export default function Login() {
   return (
-    <div className="flex items-center justify-center mx-auto flex-col">
+    <div className="flex items-center justify-center w-full h-full flex-col">
       <h3 className="uppercase text-3xl mb-8">Đăng nhập</h3>
       <form
         action="http://localhost:3000/api/auth"

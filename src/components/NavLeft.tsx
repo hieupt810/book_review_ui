@@ -9,28 +9,28 @@ export default function NavLeft() {
   const router = useRouter();
 
   return (
-    <div className="w-1/12 max-w-1/12 h-full border-r-2 border-[#e2e0d6] flex flex-col justify-between items-center font-normal">
-      <div className="mt-2">
+    <div className="w-24 h-full border-r-2 border-[#e2e0d6] flex flex-col justify-between items-center font-normal">
+      <div>
         <BsBook size={40} />
       </div>
       <div className="flex flex-col gap-2 items-center">
         <button
           onClick={() => router.push("/")}
-          className="rounded-full p-4 hover:bg-[#ede9df]"
+          className="rounded-full p-3 hover:bg-[#C9C39F]"
         >
           <BiHomeAlt2 size={30} />
         </button>
-        <button className="rounded-full p-4 hover:bg-[#ede9df]">
+        <button className="rounded-full p-3 hover:bg-[#C9C39F]">
           <TfiTimer size={30} />
         </button>
-        <button className="rounded-full p-4 hover:bg-[#ede9df]">
+        <button className="rounded-full p-3 hover:bg-[#C9C39F]">
           <BsBookmark size={30} />
         </button>
-        <button className="rounded-full p-4 hover:bg-[#ede9df]">
+        <button className="rounded-full p-3 hover:bg-[#C9C39F]">
           <IoSettingsOutline size={30} />
         </button>
       </div>
-      <a className="rounded-full p-4 hover:bg-[#ede9df] w-fit cursor-pointer">
+      <a className="rounded-full p-3 hover:bg-[#C9C39F] w-fit cursor-pointer">
         <AiOutlineAlignLeft size={30} />
       </a>
     </div>
