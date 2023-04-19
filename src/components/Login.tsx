@@ -25,7 +25,7 @@ export default function Login() {
         />
         <button
           type="submit"
-          className="w-1/2 mt-6 p-2 bg-[#d3cfc6] rounded-xl"
+          className="w-1/2 mt-6 p-2 text-lg bg-[#C9C39F] rounded-xl"
         >
           Đăng nhập
         </button>

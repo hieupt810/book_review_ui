@@ -4,8 +4,9 @@ import { useRouter } from "next/router";
 import { BsSearch } from "react-icons/bs";
 import { IoMdNotificationsOutline } from "react-icons/io";
 
-export async function getStaticProps() {
-  const tokenStore = await fetch("http://localhost:3000/api/auth");
+export async function getServerSideProps(req: any, res: any) {
+  const response = await fetch("http://localhost:3000/api/auth");
+  const tokenStore = await response.json();
   return {
     props: {
       tokenStore,
@@ -15,7 +16,6 @@ export async function getStaticProps() {
 
 export default function NavTop(tokenStore: any) {
   const router = useRouter();
-  console.log(tokenStore);
 
   return (
     <div className="flex justify-between items-center px-6 w-full">

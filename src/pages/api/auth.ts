@@ -21,8 +21,7 @@ export default async function handler(req: any, res: any) {
           }),
         });
         const AuthToken = await response.json();
-        // storage.setItem("token", AuthToken.token);
-        localStorage.setItem("token", AuthToken.token);
+        storage.setItem("token", AuthToken.token);
         res.redirect(307, "/");
       } catch (err) {
         console.log(err);
@@ -33,7 +32,7 @@ export default async function handler(req: any, res: any) {
       break;
 
     case "GET":
-      const tokenStore = localStorage.getItem("token");
+      const tokenStore = storage.getItem("token");
       res.json({ token: tokenStore });
       break;
 

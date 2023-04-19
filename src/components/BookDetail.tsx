@@ -1,4 +1,3 @@
-import NavTop from "./NavTop";
 import Image from "next/image";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { BsBookmark } from "react-icons/bs";
