@@ -5,7 +5,7 @@ export interface Book {
   description: string;
   category: string;
   amount: number;
-  imageURL: string;
+  imageUr1: string;
   tags: string;
   author: string;
   reviews: string[];

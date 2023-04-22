@@ -1,8 +1,5 @@
 import Image from "next/image";
 import { Book } from "@/models/Book";
-import { BsBookmark } from "react-icons/bs";
-import { FiDownload } from "react-icons/fi";
-import { AiOutlineShareAlt } from "react-icons/ai";
 
 export default function BookDetail(data: Book) {
   return (
@@ -10,7 +7,7 @@ export default function BookDetail(data: Book) {
       <div className="px-12 flex justify-around items-center h-1/2 box-border">
         <div className="w-1/2 flex items-center justify-center">
           <Image
-            src={data.imageURL}
+            src={data.imageUr1}
             width={300}
             height={300}
             priority={true}
@@ -28,15 +25,9 @@ export default function BookDetail(data: Book) {
       <div className="bg-[#fdfcf8] rounded-2xl shadow-lg mx-12 overflow-auto pt-4 pb-12 px-20 -mt-20 space-y-8 mb-6">
         <div className="ml-auto mr-0 border-b-2 pb-4 w-96">
           <div className="space-x-4 flex justify-end">
-            <button className="rounded-full p-4 bg-[#f0eee3]">
-              <BsBookmark size={25} />
-            </button>
-            <button className="rounded-full p-4 bg-[#f0eee3]">
-              <AiOutlineShareAlt size={25} />
-            </button>
-            <button className="rounded-full p-4 bg-[#f0eee3]">
-              <FiDownload size={25} />
-            </button>
+            <button className="rounded-full p-4 bg-[#f0eee3]"></button>
+            <button className="rounded-full p-4 bg-[#f0eee3]"></button>
+            <button className="rounded-full p-4 bg-[#f0eee3]"></button>
           </div>
         </div>
 

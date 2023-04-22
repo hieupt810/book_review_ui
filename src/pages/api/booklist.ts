@@ -1,4 +1,4 @@
-import { getCookie } from "cookies-next";
+import { Book } from "@/models/Book";
 
 export default async function handler(req: any, res: any) {
   const baseURL = "https://localhost:7021/book/all";
@@ -8,11 +8,11 @@ export default async function handler(req: any, res: any) {
       method: "GET",
       headers: {
         Accept: "text/json",
-        Authorization: "Bearer " + getCookie("token"),
+        Authorization: "Bearer " + req.cookies.token,
         "Content-Type": "text/json",
       },
     });
-    // console.log(response);
+    return res.status(200).json(await response.json());
   } catch (error) {
     console.log(error);
     res.status(405).json({ msg: "Review GET Method had error" });

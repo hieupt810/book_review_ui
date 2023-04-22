@@ -30,13 +30,6 @@ export default function Home() {
               <h3 className="font-semibold">Thêm sách mới vào hệ thống</h3>
               <input
                 type="text"
-                name="id"
-                id="id"
-                placeholder="ID sách"
-                className="bg-slate-100 outline-none p-2 w-64 rounded-lg"
-              />
-              <input
-                type="text"
                 name="title"
                 id="title"
                 placeholder="Tiêu đề sách"
@@ -72,8 +65,8 @@ export default function Home() {
               />
               <input
                 type="text"
-                name="imageURL"
-                id="imageURL"
+                name="imageUr1"
+                id="imageUr1"
                 placeholder="Đường dẫn ảnh bìa sách"
                 className="bg-slate-100 outline-none p-2 w-64 rounded-lg"
               />
