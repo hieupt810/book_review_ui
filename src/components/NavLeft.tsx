@@ -1,38 +1,38 @@
-import { AiOutlineAlignLeft } from "react-icons/ai";
-import { BiHomeAlt2 } from "react-icons/bi";
-import { BsBook, BsBookmark } from "react-icons/bs";
-import { IoSettingsOutline } from "react-icons/io5";
-import { TfiTimer } from "react-icons/tfi";
-import { useRouter } from "next/router";
+import { FC } from "react";
+import {
+  BookOpenCheck,
+  Home,
+  BookMarked,
+  Timer,
+  Settings,
+  Menu,
+} from "lucide-react";
 
-export default function NavLeft() {
-  const router = useRouter();
+interface NavLeftProps {}
 
+const NavLeft: FC<NavLeftProps> = ({}) => {
   return (
-    <div className="w-24 h-full border-r-2 border-[#e2e0d6] flex flex-col justify-between items-center font-normal">
-      <div>
-        <BsBook size={40} />
-      </div>
-      <div className="flex flex-col gap-2 items-center">
-        <button
-          onClick={() => router.push("/")}
-          className="rounded-full p-3 hover:bg-[#C9C39F]"
-        >
-          <BiHomeAlt2 size={30} />
+    <div className="w-20 h-full border-r-2 border-gray-300 flex flex-col justify-between items-center font-normal text-sm text-gray-900">
+      <BookOpenCheck />
+      <div className="flex flex-col gap-y-4">
+        <button className="p-2 cursor-pointer hover:bg-[#C9C39F] rounded-full">
+          <Home />
         </button>
-        <button className="rounded-full p-3 hover:bg-[#C9C39F]">
-          <TfiTimer size={30} />
+        <button className="p-2 cursor-pointer hover:bg-[#C9C39F] rounded-full">
+          <BookMarked />
         </button>
-        <button className="rounded-full p-3 hover:bg-[#C9C39F]">
-          <BsBookmark size={30} />
+        <button className="p-2 cursor-pointer hover:bg-[#C9C39F] rounded-full">
+          <Timer />
         </button>
-        <button className="rounded-full p-3 hover:bg-[#C9C39F]">
-          <IoSettingsOutline size={30} />
+        <button className="p-2 cursor-pointer hover:bg-[#C9C39F] rounded-full">
+          <Settings />
         </button>
       </div>
-      <a className="rounded-full p-3 hover:bg-[#C9C39F] w-fit cursor-pointer">
-        <AiOutlineAlignLeft size={30} />
-      </a>
+      <button className="p-2 cursor-pointer hover:bg-[#C9C39F] rounded-full">
+        <Menu />
+      </button>
     </div>
   );
-}
+};
+
+export default NavLeft;

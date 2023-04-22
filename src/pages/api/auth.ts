@@ -26,6 +26,11 @@ export default async function handler(
         });
         const authToken = await response.json();
         setCookie("token", authToken.token, { req, res, maxAge: 60 * 60 * 24 });
+        setCookie("username", authToken.refreshToken.user.username, {
+          req,
+          res,
+          maxAge: 60 * 60 * 24,
+        });
         res.redirect(307, "/");
       } catch (err) {
         console.log(err);

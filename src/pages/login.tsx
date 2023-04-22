@@ -1,13 +1,15 @@
 import Login from "@/components/Login";
 import NavLeft from "@/components/NavLeft";
 
-export default function Home() {
+export default function login() {
   return (
-    <main className="bg-[#c7c4bd] rounded-3xl p-4 h-middleHeight w-middleWidth">
-      <div className="bg-[#f0eee3] rounded-2xl py-4 h-full flex items-start">
-        <NavLeft />
-        <Login />
+    <div className="bg-[#898680] w-screen h-screen p-8">
+      <div className="bg-[#c7c4bd] w-full h-full p-4 rounded-lg">
+        <div className="bg-[#f0eee3] w-full h-full p-4 rounded-lg flex items-start">
+          <NavLeft />
+          <Login />
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

@@ -1,35 +1,31 @@
-export default function Login() {
+import { FC } from "react";
+
+const Login: FC = ({}) => {
   return (
-    <div className="flex items-center justify-center w-full h-full flex-col">
-      <h3 className="uppercase text-3xl mb-8">Đăng nhập</h3>
-      <form
-        action="http://localhost:3000/api/auth"
-        method="POST"
-        className="flex flex-col gap-4 items-center"
-      >
-        <input
-          type="text"
-          name="username"
-          id="username"
-          placeholder="Tên đăng nhập"
-          required
-          className="p-4 rounded-xl w-80 outline-none"
-        />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Mật khẩu"
-          required
-          className="p-4 rounded-xl w-80 outline-none"
-        />
-        <button
-          type="submit"
-          className="w-1/2 mt-6 p-2 text-lg bg-[#C9C39F] rounded-xl"
-        >
-          Đăng nhập
-        </button>
-      </form>
-    </div>
+    <form
+      action="http://localhost:3000/api/auth"
+      method="POST"
+      className="flex flex-col gap-y-4 text-sm text-gray-900 m-auto items-center justify-center w-full"
+    >
+      <input
+        type="text"
+        name="username"
+        id="username"
+        placeholder="Tài khoản"
+        className="bg-slate-100 outline-none p-4 w-64 rounded-lg"
+      />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Mật khẩu"
+        className="bg-slate-100 outline-none p-4 w-64 rounded-lg"
+      />
+      <button type="submit" className="p-2 bg-[#C9C39F] w-36 rounded-lg mt-2">
+        Đăng nhập
+      </button>
+    </form>
   );
-}
+};
+
+export default Login;
