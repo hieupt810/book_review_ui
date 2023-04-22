@@ -1,6 +1,6 @@
-import NavLeft from "@/components/NavLeft";
-import NavTop from "@/components/NavTop";
 import { getCookie } from "cookies-next";
+import NavTop from "@/components/NavTop";
+import NavLeft from "@/components/NavLeft";
 import { useEffect, useState } from "react";
 
 function getData() {
