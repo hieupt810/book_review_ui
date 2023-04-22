@@ -1,4 +1,3 @@
-import { Book } from "@/models/Book";
 import { getCookie } from "cookies-next";
 
 export default async function handler(req: any, res: any) {
@@ -13,7 +12,7 @@ export default async function handler(req: any, res: any) {
         "Content-Type": "text/json",
       },
     });
-    console.log(response);
+    // console.log(response);
   } catch (error) {
     console.log(error);
     res.status(405).json({ msg: "Review GET Method had error" });

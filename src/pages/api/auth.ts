@@ -17,7 +17,7 @@ export default async function handler(
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Accept: " text/json",
+            Accept: "text/json",
           },
           body: JSON.stringify({
             username: usr.username,
