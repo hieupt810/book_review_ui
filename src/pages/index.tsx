@@ -2,25 +2,28 @@ import { getCookie } from "cookies-next";
 import NavTop from "@/components/NavTop";
 import NavLeft from "@/components/NavLeft";
 import { useEffect, useState } from "react";
+import ListBook from "@/components/ListBook";
 
-function getData() {
-  const data = getCookie("username");
-  return data as string;
+function getStoreUsername() {
+  const username = getCookie("username");
+  return username as string;
 }
 
 export default function Home() {
-  const [storeData, setStoreData] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+
   useEffect(() => {
-    setStoreData(getData());
+    setUsername(getStoreUsername());
   }, []);
 
   return (
-    <div className="bg-[#898680] w-screen h-screen p-8">
+    <div className="bg-[#898680] w-screen h-screen p-6">
       <div className="bg-[#c7c4bd] w-full h-full p-4 rounded-lg">
         <div className="bg-[#f0eee3] w-full h-full p-4 rounded-lg flex items-start">
           <NavLeft />
-          <div className="w-full">
-            <NavTop user={storeData} />
+          <div className="w-full h-full mx-6">
+            <NavTop user={username} />
+            <ListBook />
           </div>
         </div>
       </div>

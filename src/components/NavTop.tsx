@@ -12,15 +12,13 @@ const NavTop: FC<NavTopProps> = ({ user }) => {
   const router = useRouter();
 
   return (
-    <div className="flex items-center justify-between mx-2">
+    <div className="flex items-center justify-between">
       <div className="flex bg-[#f0eee3] text-sm text-gray-900">
-        <div className="p-2">
-          <Search />
-        </div>
+        <Search />
         <input
           type="text"
           placeholder="Tìm sách, tác giả, ..."
-          className="bg-[#f0eee3] w-52 outline-none"
+          className="bg-[#f0eee3] w-52 outline-none mx-2"
         />
       </div>
 
@@ -32,7 +30,7 @@ const NavTop: FC<NavTopProps> = ({ user }) => {
               deleteCookie("username");
               router.reload();
             }}
-            className="p-2 mx-2 bg-[#C9C39F] rounded-lg cursor-pointer flex items-center gap-x-2"
+            className="p-2 mx-2 hover:bg-[#C9C39F] rounded-lg cursor-pointer flex items-center gap-x-2"
           >
             <div>
               <UserIcon />
@@ -41,7 +39,7 @@ const NavTop: FC<NavTopProps> = ({ user }) => {
           </div>
         ) : (
           <Link href="http://localhost:3000/login">
-            <button className="px-4 py-2 mx-2 bg-[#C9C39F] rounded-lg">
+            <button className="px-4 py-2 mx-2 hover:bg-[#C9C39F] rounded-lg">
               Đăng nhập
             </button>
           </Link>

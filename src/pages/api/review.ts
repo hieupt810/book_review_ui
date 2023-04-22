@@ -1,4 +1,4 @@
-import storage from "local-storage-fallback";
+import { getCookie } from "cookies-next";
 
 export default async function handler(req: any, res: any) {
   const baseURL = "https://localhost:7021/bookId";
@@ -9,13 +9,13 @@ export default async function handler(req: any, res: any) {
       headers: {
         "Content-Type": "text/json",
         Accept: " text/json",
-        Authorization: "Bearer " + storage.getItem("token"),
+        Authorization: "Bearer " + getCookie("token"),
       },
     });
     const ReviewData = await response.json();
     res.status(200).json(ReviewData);
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     res.status(405).json({ msg: "Review GET Method had error" });
   } finally {
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "1";
