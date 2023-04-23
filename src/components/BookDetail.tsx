@@ -4,7 +4,10 @@ import { Bookmark, Share2, Download, User, Star } from "lucide-react";
 
 interface Comment {
   id: number;
-  user: string;
+  user: {
+    id: number;
+    username: string;
+  };
   content: string;
   rating: number;
   createdDate: string;
@@ -94,7 +97,7 @@ export default function BookDetail(data: Book) {
                         <User size={20} />
                       </div>
                       <span className="text-base text-gray-900 ml-2 font-semibold">
-                        User {value.user}
+                        {value.user.username}
                         <span className="text-xs ml-2 text-zinc-500">
                           {value.createdDate}
                         </span>
