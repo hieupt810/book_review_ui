@@ -1,11 +1,10 @@
+import { Book } from "@/models/Book";
 import { useRouter } from "next/router";
 import { getCookie } from "cookies-next";
 import NavTop from "@/components/NavTop";
 import NavLeft from "@/components/NavLeft";
 import { useEffect, useState } from "react";
 import BookDetail from "@/components/BookDetail";
-import { Book } from "@/models/Book";
-import { resolve } from "path";
 
 function getStoreUsername() {
   const username = getCookie("username");

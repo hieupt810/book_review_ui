@@ -8,10 +8,17 @@ function getStoreUsername() {
   return username as string;
 }
 
+function getStoreRole() {
+  const role = getCookie("role");
+  return role as string;
+}
+
 export default function Home() {
   const [username, setUsername] = useState<string>("");
+  const [role, setRole] = useState<string>("");
 
   useEffect(() => {
+    setRole(getStoreRole());
     setUsername(getStoreUsername());
   }, []);
 
@@ -21,7 +28,7 @@ export default function Home() {
         <div className="bg-[#f0eee3] w-full h-full p-4 rounded-lg flex items-start">
           <NavLeft />
           <div className="w-full h-full mx-6">
-            <NavTop user={username + " - Admin"} />
+            <NavTop user={username} />
             <div className="grid grid-cols-2 w-full h-full">
               <form
                 action="http://localhost:3000/api/addBook"
