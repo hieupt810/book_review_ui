@@ -23,7 +23,7 @@ export default function Home() {
           <NavLeft />
           <div className="w-full h-full px-6 overflow-auto">
             <NavTop user={username} />
-            <ListBook />
+            {username ? <ListBook /> : null}
           </div>
         </div>
       </div>
