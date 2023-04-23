@@ -2,7 +2,15 @@ import Image from "next/image";
 import { Book } from "@/models/Book";
 import { getCookie } from "cookies-next";
 import { useState, useEffect } from "react";
-import { Bookmark, Share2, Download, User, Star, Send } from "lucide-react";
+import {
+  Bookmark,
+  Share2,
+  Download,
+  User,
+  Star,
+  Send,
+  Trash2,
+} from "lucide-react";
 
 interface Comment {
   id: number;
@@ -156,25 +164,31 @@ export default function BookDetail(data: Book) {
               return (
                 <div
                   key={_index}
-                  className="flex flex-col mb-4 bg-slate-200 p-2 rounded-xl shadow-lg"
+                  className="flex justify-between items-center mb-4 bg-slate-200 p-2 rounded-xl shadow-lg"
                 >
-                  <div className="h-6 flex items-center mb-1">
-                    <div className="w-12 flex items-center justify-center">
-                      <User size={20} />
-                    </div>
-                    <span className="text-base text-gray-900 ml-2 font-semibold">
-                      {value.user.username}
-                      <span className="text-xs ml-2 text-zinc-500">
-                        {value.createdDate}
+                  <div className="flex flex-col">
+                    <div className="h-6 flex items-center mb-1">
+                      <div className="w-12 flex items-center justify-center">
+                        <User size={20} />
+                      </div>
+                      <span className="text-base text-gray-900 ml-2 font-semibold">
+                        {value.user.username}
+                        <span className="text-xs ml-2 text-zinc-500">
+                          {value.createdDate}
+                        </span>
                       </span>
-                    </span>
+                    </div>
+
+                    <div className="ml-14 text-gray-900 font-normal text-sm flex flex-col gap-y-2">
+                      <span>{value.content}</span>
+                      <div className="flex gap-x-2">
+                        {printStar(value.rating)}
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="ml-14 text-gray-900 font-normal text-sm flex flex-col gap-y-2">
-                    <span>{value.content}</span>
-                    <div className="flex gap-x-2">
-                      {printStar(value.rating)}
-                    </div>
+                  <div className="p-2 cursor-pointer mx-4">
+                    <Trash2 />
                   </div>
                 </div>
               );
