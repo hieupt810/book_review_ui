@@ -112,7 +112,7 @@ export default function BookDetail(data: Book) {
               })
             : null}
         </div>
-      </div>
+      </div> 
     </div>
   );
 }
