@@ -7,6 +7,7 @@ import {
   Settings,
   Menu,
 } from "lucide-react";
+import Link from "next/link";
 
 interface NavLeftProps {}
 
@@ -17,9 +18,11 @@ const NavLeft: FC<NavLeftProps> = ({}) => {
         <BookOpenCheck />
       </div>
       <div className="flex flex-col gap-y-4">
-        <button className="p-2 cursor-pointer hover:bg-[#C9C39F] rounded-full">
-          <Home />
-        </button>
+        <Link href="/">
+          <button className="p-2 cursor-pointer hover:bg-[#C9C39F] rounded-full">
+            <Home />
+          </button>
+        </Link>
         <button className="p-2 cursor-pointer hover:bg-[#C9C39F] rounded-full">
           <BookMarked />
         </button>

@@ -1,20 +1,21 @@
 export default async function handler(req: any, res: any) {
-  console.log(req.cookies); // log out all cookies
-  const baseURL = "https://localhost:7021/book/all";
+  const baseURL = "https://localhost:7021/book/delete/";
+
   try {
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-    const response = await fetch(baseURL, {
-      method: "GET",
+    const pid = req.body;
+    const response = await fetch(baseURL + pid, {
+      method: "DELETE",
       headers: {
         Accept: "text/json",
         Authorization: "Bearer " + req.cookies.token,
-        "Content-Type": "text/json",
+        "Content-Type": "application/json",
       },
     });
-    return res.status(200).json(await response.json());
+    // return res.status(200).json(await response.json());
   } catch (error) {
     console.log(error);
-    res.status(405).json({ msg: "Review GET Method had error" });
+    res.status(405).json({ msg: "deleteBook DELETE method had error(s)." });
   } finally {
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "1";
   }

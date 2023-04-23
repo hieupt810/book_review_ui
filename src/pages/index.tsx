@@ -21,9 +21,9 @@ export default function Home() {
       <div className="bg-[#c7c4bd] w-full h-full p-4 rounded-lg">
         <div className="bg-[#f0eee3] w-full h-full p-4 rounded-lg flex items-start">
           <NavLeft />
-          <div className="w-full h-full mx-6">
+          <div className="w-full h-full px-6 overflow-auto">
             <NavTop user={username} />
-            <ListBook />
+            {username ? <ListBook /> : null}
           </div>
         </div>
       </div>

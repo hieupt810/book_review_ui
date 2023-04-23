@@ -1,12 +1,11 @@
 import { Book } from "@/models/Book";
-import { getCookie } from "cookies-next";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const baseURL = "https://localhost:7021/api/book/addBook";
+  const baseURL = "https://localhost:7021/book/addBook";
 
   switch (req.method) {
     case "POST":
@@ -17,24 +16,21 @@ export default async function handler(
           method: "POST",
           headers: {
             Accept: "text/json",
-            Authorization: "Bearer " + getCookie("token"),
+            Authorization: "Bearer " + req.cookies.token,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            id: inputBook.id,
             title: inputBook.title,
             price: inputBook.price,
             description: inputBook.description,
             category: inputBook.category,
             amount: inputBook.amount,
-            imageUr1: inputBook.imageURL,
+            imageUr1: inputBook.imageUr1,
             tags: inputBook.tags,
             author: inputBook.author,
-            reviews: [],
           }),
         });
-        const data = response.status;
-        console.log(data);
+        res.status(200).json(await response.json());
       } catch (err) {
         console.log(err);
         res.status(405).json({ msg: "AddBook POST method had error(s)." });
