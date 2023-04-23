@@ -6,7 +6,7 @@ interface Review {
 }
 
 export default async function handler(req: any, res: any) {
-  const baseURL = "https://localhost:7021/review/postReview";
+  const baseURL = "https://localhost:7021/api/review/postReview";
 
   switch (req.method) {
     case "POST":

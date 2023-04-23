@@ -25,9 +25,9 @@ function printStar(_num: number) {
 
   for (let index = 0; index < _num; index++) {
     list.push(
-      <li className="list-none">
+      <span key={index} className="list-none">
         <Star fill="#67E541" strokeWidth={0} size={20} />
-      </li>
+      </span>
     );
   }
 

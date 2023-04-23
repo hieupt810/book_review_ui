@@ -32,6 +32,11 @@ export default async function handler(
           maxAge: 60 * 60 * 24,
         });
         setCookie("role", authToken.role, { req, res, maxAge: 60 * 60 * 24 });
+        setCookie("userId", authToken.refreshToken.user.id, {
+          req,
+          res,
+          maxAge: 60 * 60 * 24,
+        });
         res.redirect(307, "/");
       } catch (err) {
         console.log(err);
