@@ -8,5 +8,5 @@ export interface Book {
   imageUr1: string;
   tags: string;
   author: string;
-  reviews: string[];
+  reviews: [];
 }

@@ -3,8 +3,8 @@ export default async function handler(req: any, res: any) {
 
   try {
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-    const pid = req.body;
-    const response = await fetch(baseURL + pid, {
+    const id = req.query.id;
+    const response = await fetch(baseURL + id, {
       method: "DELETE",
       headers: {
         Accept: "text/json",
@@ -12,7 +12,7 @@ export default async function handler(req: any, res: any) {
         "Content-Type": "application/json",
       },
     });
-    // return res.status(200).json(await response.json());
+    return res.status(200).redirect("/");
   } catch (error) {
     console.log(error);
     res.status(405).json({ msg: "deleteBook DELETE method had error(s)." });
