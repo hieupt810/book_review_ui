@@ -104,13 +104,15 @@ export default function Home() {
                   <h3 className="font-semibold text-xl mb-4">
                     Xoá sách khỏi hệ thống
                   </h3>
+
                   <input
                     type="number"
-                    name="pid"
-                    id="pid"
+                    name="id"
+                    id="id"
                     placeholder="ID sách cần xoá"
                     className="bg-slate-100 outline-none p-2 w-64 rounded-lg"
                   />
+
                   <button
                     type="submit"
                     className="p-2 bg-[#C9C39F] w-36 rounded-lg mt-4"
