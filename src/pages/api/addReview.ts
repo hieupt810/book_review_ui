@@ -27,7 +27,7 @@ export default async function handler(req: any, res: any) {
             bookId: input.bookId,
           }),
         });
-        //console.log(await response.json());
+        console.log(await response.json());
         res.status(200).redirect(`/detail/${input.bookId}`);
       } catch (err) {
         console.log(err);

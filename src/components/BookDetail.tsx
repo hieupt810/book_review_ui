@@ -41,7 +41,21 @@ function printStar(_num: number) {
 
   return list;
 }
-
+async function handleDeleteComment(commentId : number) {
+  const response = await fetch(`/api/deleteReview?id=${commentId}`, {
+    method: 'DELETE',
+    headers: {
+      Accept: "text/json",
+      Authorization: "Bearer " + getCookie("token"),
+      "Content-Type": "application/json",
+    },
+  });
+  if (response.ok) {
+    location.reload();
+  } else {
+    // handle error
+  }
+}
 export default function BookDetail(data: Book) {
   const [userId, setUserId] = useState<number>(0);
 
@@ -186,10 +200,14 @@ export default function BookDetail(data: Book) {
                       </div>
                     </div>
                   </div>
-
-                  <div className="p-2 cursor-pointer mx-4">
+                  {/* <div className="p-2 cursor-pointer mx-4">
                     <Trash2 />
-                  </div>
+                  </div> */}
+                  {value.user.id == userId && (
+                    <button className="p-2 cursor-pointer mx-4" onClick={() => handleDeleteComment(value.id)}>
+                      <Trash2 />
+                    </button>
+                  )}
                 </div>
               );
             })
