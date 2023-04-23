@@ -26,6 +26,7 @@ const NavTop: FC<NavTopProps> = ({ user }) => {
         {user ? (
           <div
             onClick={() => {
+              deleteCookie("role");
               deleteCookie("token");
               deleteCookie("username");
               router.reload();

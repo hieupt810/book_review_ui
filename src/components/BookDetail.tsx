@@ -34,9 +34,10 @@ export default function BookDetail(data: Book) {
         <div className="w-1/2 flex items-center justify-center">
           <Image
             src={data.imageUr1}
-            width={400}
-            height={400}
+            width={350}
+            height={350}
             priority={true}
+            quality={100}
             alt={`Bìa sách ${data.title}`}
             className="rounded-lg shadow-md"
           />
@@ -78,7 +79,7 @@ export default function BookDetail(data: Book) {
 
           {data.tags ? (
             <div className="space-y-2">
-              <h5 className="font-semibold text-xl">Danh mục</h5>
+              <h5 className="font-semibold text-xl">Hashtag</h5>
               <p>{data.tags}</p>
             </div>
           ) : null}
