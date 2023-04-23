@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { Book } from "@/models/Book";
+import { getCookie } from "cookies-next";
+import { useState, useEffect } from "react";
 import { Bookmark, Share2, Download, User, Star, Send } from "lucide-react";
 
 interface Comment {
@@ -11,6 +13,11 @@ interface Comment {
   content: string;
   rating: number;
   createdDate: string;
+}
+
+function getStoreId() {
+  const id = getCookie("userId");
+  return id as unknown as number;
 }
 
 function printStar(_num: number) {
@@ -28,6 +35,12 @@ function printStar(_num: number) {
 }
 
 export default function BookDetail(data: Book) {
+  const [userId, setUserId] = useState<number>(0);
+
+  useEffect(() => {
+    setUserId(getStoreId());
+  }, []);
+
   return (
     <div className="w-full overflow-auto text-gray-900 mt-4 mb-2">
       <div className="px-12 flex justify-around items-center">
@@ -92,7 +105,25 @@ export default function BookDetail(data: Book) {
           >
             <div className="w-full flex items-center">
               <input
+                type="number"
+                name="userId"
+                id="userId"
+                value={userId}
+                readOnly={true}
+                className="hidden"
+              />
+              <input
+                type="number"
+                name="bookId"
+                id="bookId"
+                value={data.id}
+                readOnly={true}
+                className="hidden"
+              />
+              <input
                 type="text"
+                name="content"
+                id="content"
                 placeholder="Nhận xét"
                 className="bg-slate-200 text-sm text-gray-900 outline-none w-full h-auto min-h-[3rem]"
               />
